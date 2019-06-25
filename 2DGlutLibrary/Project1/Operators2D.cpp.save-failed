@@ -1,0 +1,163 @@
+#include "Operators2D.h"
+
+
+/*
+#include "Operators2D.h"
+#include <stdio.h>
+#include "Matrix.h"
+*/
+
+/*
+  MatrixO = original
+  MatrixI = identidad
+  */
+Operators2D::Operators2D(){}
+
+Operators2D::~Operators2D(){}
+
+void Operators2D::translation2D(Point2D &origin, Point2D pTras)
+{
+   Matrix matrix;
+
+   double matrixT[3][3];
+   double matrixP[3][1], matrixC[3][1];
+
+   matrix.loadTranslation2D(matrixTraslacion, pTras);
+   matrix.loadPoint2D(matrixPoint2D, origin);
+   matrix.zeroVector2D(matrixC);
+   matrix.multiplyVector(matrixTraslacion, matrixPoint2D, matrixC);
+
+   origin.setValue(X,matrixC[0][0]);
+   origin.setValue(Y,matrixC[1][0]);
+}
+
+void Operators2D::scale2D(Point2D &origin, Point2D scalar)
+{
+
+   double matrixO[3][3], matrixI[3][3], matrixE[3][3];
+   double matrixM[3][3], matrixR[3][3];
+   double matrixP[3][1], matrixC[3][1];
+   Matrix matrix;
+
+  	matrix.loadOrigin2D(matrixO, origin);//BIEN
+   matrix.loadScale2D(matrixE, scalar);//BIEN
+  	matrix.loadIdentity2D(matrixI, origin);//BIEN
+
+   matrix.zeroMatrix2D(matrixR);//BIEN
+   matrix.multiply(matrixO, matrixE, matrixR);
+
+   matrix.zeroMatrix2D(matrixM);//BIEN
+   matrix.multiply(matrixR, matrixO, matrixM);
+
+  	matrix.loadPoint2D(matrixP, origin);//BIEN
+
+   matrix.zeroVector2D(matrixC);//BIEN
+   matrix.multiplyVector(matrixM, matrixP, matrixC);
+   origin.setValue(X, matrixC[0][0]);
+   origin.setValue(Y, matrixC[1][0]);
+}
+
+void Operators2D::rotation2D(Point2D &origin, double angle)
+{
+
+   double matrixO[3][3], matrixI[3][3], matrixRotation[3][3];
+   double matrixM[3][3], matrixR[3][3];
+   double matrixP[3][1], matrixC[3][1];
+
+   Matrix matrix;
+
+   matrix.loadOrigin2D(matrixO, origin);
+   matrix.loadRotation2D(matrixR, angle);
+   matrix.loadIdentity2D(matrixO, origin);
+
+   matrix.zeroMatrix2D(matrixR);
+   matrix.multiply(matrixO, matrixR, matrixR);
+
+   matrix.zeroMatrix2D(matrixM);
+   matrix.multiply(matrixR, matrixO, matrixM);
+
+   matrix.loadPoint2D(matrixP, origin);
+   matrix.zeroVector2D(matrixC);
+   matrix.multiplyVector(matrixM, matrixP, matrixC);
+
+   origin.setValue(X, matrixC[0][0]);
+   origin.setValue(Y, matrixC[1][0]);
+}
+
+void Operators2D::reflexX2D(Point2D &origin, Point2D reflex)
+{
+   double matrixO[3][3], matrixI[3][3], matrixRelflex[3][3];
+   double matrixM[3][3], matrixR[3][3];
+   double matrixP[3][1], matrixC[3][1];
+
+   Matrix matrix;
+
+   matrix.loadReflexX2D(matrixRelflex);
+   matrix.loadOrigin2D(matrixO, reflex);
+   matrix.loadIdentity2D(matrixI, reflex);
+
+   matrix.zeroMatrix2D(matrixR);
+   matrix.multiply(matrixRelflex, matrixO, matrixR);
+
+   matrix.zeroMatrix2D(matrixM);
+   matrix.multiply(matrixR, matrixO, matrixM);
+
+   matrix.loadPoint2D(matrixP, origin);
+   matrix.zeroVector2D(matrixC);
+   matrix.multiplyVector(matrixM, matrixP, matrixC);
+
+   origin.setValue(X,matrixC[0][0]);
+   origin.setValue(Y,matrixC[1][0]);
+}
+
+void Operators2D::reflexY2D(Point2D &origin, Point2D reflex)
+{
+   double matrixO[3][3], matrixI[3][3], matrixRelflex[3][3];
+   double matrixM[3][3], matrixR[3][3];
+   double matrixP[3][1], matrixC[3][1];
+
+   Matrix matrix;
+
+   matrix.loadReflexY2D(matrixRelflex);
+   matrix.loadOrigin2D(matrixO, reflex);
+   matrix.loadIdentity2D(matrixI, reflex);
+
+   matrix.zeroMatrix2D(matrixR);
+   matrix.multiply(matrixRelflex, matrixO, matrixR);
+
+   matrix.zeroMatrix2D(matrixM);
+   matrix.multiply(matrixR, matrixO, matrixM);
+
+   matrix.loadReflexXY2D(matrixP, origin);
+   matrix.zeroVector2D(matrixC);
+   matrix.multiplyVector(matrixM, matrixP, matrixC);
+
+   origin.setValue(X, matrixC[0][0]);
+   origin.setValue(Y, matrixC[1][0]);
+}
+
+void Operators2D::reflexXY2D(Point2D &origin, Point2D reflex)
+{
+   double matrixO[3][3], matrixI[3][3], matrixRelflex[3][3];
+   double matrixM[3][3], matrixR[3][3];
+   double matrixP[3][1], matrixC[3][1];
+
+   Matrix matrix;
+
+   matrix.loadReflexXY2D(matrixRelflex);
+   matrix.loadOrigin2D(matrixO, reflex);
+   matrix.loadIdentity2D(matrixI, reflex);
+
+   matrix.zeroMatrix2D(matrixR);
+   matrix.multiply(matrixRelflex, matrixO, matrixR);
+
+   matrix.zeroMatrix2D(matrixM);
+   matrix.multiply(matrixR, matrixO, matrixM);
+
+   matrix.loadPoint2D(matrixP, origin);
+   matrix.zeroVector2D(matrixC);
+   matrix.multiplyVector(matrixM, matrixP, matrixC);
+
+   origin.setValue(X, matrixC[0][0]);
+   origin.setValue(Y, matrixC[1][0]);
+}

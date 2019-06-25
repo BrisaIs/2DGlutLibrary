@@ -1,0 +1,103 @@
+# depslib dependency file v1.0
+1492039877 source:e:\fac\graph\rec\project1\line.cpp
+	"Line.h"
+	<math.h>
+
+1492026521 e:\fac\graph\rec\project1\line.h
+	"Point2D.h"
+
+1492039017 e:\fac\graph\rec\project1\utilities.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<GL/glut.h>
+	"Point2D.cpp"
+	"Line.cpp"
+	"Matrix.cpp"
+	"Operators2D.cpp"
+	"Polygon2D.cpp"
+
+1066740114 e:\sw\glut\include\gl\glut.h
+	"freeglut_std.h"
+
+1413566904 e:\sw\glut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1301114764 e:\sw\glut\include\gl\gl.h
+
+1301114764 e:\sw\glut\include\gl\glu.h
+	<stddef.h>
+	<GL/gl.h>
+
+1492905912 e:\fac\graph\rec\project1\point2d.cpp
+	"Point2D.h"
+
+1491977744 e:\fac\graph\rec\project1\point2d.h
+	"Utilities.h"
+	<GL/glut.h>
+
+1492039877 e:\fac\graph\rec\project1\line.cpp
+	"Line.h"
+	<math.h>
+
+1493002312 e:\fac\graph\rec\project1\matrix.cpp
+	"Matrix.h"
+	<math.h>
+
+1493000879 e:\fac\graph\rec\project1\matrix.h
+	"Utilities.h"
+	<math.h>
+	"Point2D.h"
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+
+1493002983 e:\fac\graph\rec\project1\operators2d.cpp
+	"Operators2D.h"
+
+1493002852 e:\fac\graph\rec\project1\operators2d.h
+	"Point2D.h"
+	"Matrix.h"
+	"Polygon2D.h"
+
+1492912728 e:\fac\graph\rec\project1\polygon2d.cpp
+	"Polygon2D.h"
+	"Utilities.h"
+
+1492912735 e:\fac\graph\rec\project1\polygon2d.h
+	"Utilities.h"
+	<stdio.h>
+	<stdlib.h>
+	"Line.h"
+	"Point2D.h"
+
+1493002517 source:e:\fac\graph\rec\project1\main.cpp
+	"Utilities.h"
+	"Point2D.h"
+	"Polygon2D.h"
+	<GL/glut.h>
+	"Operators2D.h"
+	<unistd.h>
+
+1493002312 source:e:\fac\graph\rec\project1\matrix.cpp
+	"Matrix.h"
+	<math.h>
+
+1493002490 source:e:\fac\graph\rec\project1\operators2d.cpp
+	"Operators2D.h"
+
+1492905912 source:e:\fac\graph\rec\project1\point2d.cpp
+	"Point2D.h"
+
+1492912728 source:e:\fac\graph\rec\project1\polygon2d.cpp
+	"Polygon2D.h"
+	"Utilities.h"
+
